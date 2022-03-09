@@ -11,8 +11,8 @@ describe('<Event /> component', () => {
     EventWrapper = shallow(<Event event={mockData[1]} />);
   });
 
-  test("render the summary", () => {
-    expect(EventWrapper.find(".summary")).toHaveLength(1);
+  test('render the summary', () => {
+    expect(EventWrapper.find('.summary')).toHaveLength(1);
   });
 
   test('render the location', () => {
@@ -23,19 +23,19 @@ describe('<Event /> component', () => {
     expect(EventWrapper.find('.description')).toHaveLength(1);
   });
 
-  test("Show details button is rendered", () => {
-    expect(EventWrapper.find(".show-details")).toHaveLength(1);
+  test('Show details button is rendered', () => {
+    expect(EventWrapper.find('.show-details')).toHaveLength(1);
   });
 
-  test("event element is collapsed by default", () => {
-    expect(EventWrapper.state("collapsed")).toBe(true);
+  test('event element is collapsed by default', () => {
+    expect(EventWrapper.state('collapsed')).toBe(true);
   });
 
-  test("clicking on show details button shows extra details", () => {
+  test('clicking on show details button shows extra details', () => {
     EventWrapper.setState({
       collapsed: true,
     });
-    EventWrapper.find(".show-details").simulate("click");
-    expect(EventWrapper.state("collapsed")).toBe(false);
+    EventWrapper.find('.show-details').simulate('click');
+    expect(EventWrapper.state('collapsed')).toBe(false);
   });
 });

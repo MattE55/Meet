@@ -28,7 +28,7 @@ class Event extends Component {
           </button>
         }
         else{
-          <div className="details-view">
+          <div className='details-view'>
             <h2 className="details-header">About event:</h2>
             <a href={event.htmlLink} className='htmlLink' target=''>See details on Google Calendar</a>
             <p className='description'>{event.description}</p>
