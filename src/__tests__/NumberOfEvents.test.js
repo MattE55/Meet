@@ -11,6 +11,7 @@ describe("<NumberOfEvents /> component", () => {
   test('render text input', () => {
     expect(NumberOfEventsWrapper.find('.number').prop('value')).toBe(32);
   });
+
 });
 
 
