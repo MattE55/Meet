@@ -22,12 +22,12 @@ class Event extends Component {
       <h1 className='summary'>{event.summary}</h1>
       <p className='dateTime'>{event.dateTime}</p>
       <p className='location'>{event.location}</p>
-        if(collapsed === true){
+        {
           <button className='show-details'
             onClick={this.handleClick}>show Details
           </button>
         }
-        else{
+        {
           <div className='details-view'>
             <h2 className="details-header">About event:</h2>
             <a href={event.htmlLink} className='htmlLink' target=''>See details on Google Calendar</a>
