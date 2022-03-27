@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Button from 'react';
 
 
 class Event extends Component {
@@ -18,25 +17,24 @@ class Event extends Component {
     const {event} = this.props;
     const {collapsed} = this.state;
 
-    return <div className='event'>
+    return (
+      <div className='event'>
       <h1 className='summary'>{event.summary}</h1>
       <p className='dateTime'>{event.dateTime}</p>
-      <p className='location'>{event.location}</p>
-        {
-          <button className='show-details'
-            onClick={this.handleClick}>show Details
-          </button>
-        }
-        {
+      <p className='location'>@{event.summary} | {event.location}</p>
+        
+      <button onClick={this.handleClick} className="show-details hide-details">
+        {collapsed ? "Show Details" : "Hide Details"}
+      </button>
+        {!collapsed && (
           <div className='details-view'>
             <h2 className="details-header">About event:</h2>
             <a href={event.htmlLink} className='htmlLink' target=''>See details on Google Calendar</a>
             <p className='description'>{event.description}</p>
-            <button className='hide-details'
-            onClick={this.handleClick}>hide Details</button>
           </div>
-        }
-    </div>;  
+        )}
+    </div>
+    );  
     }
   
 }

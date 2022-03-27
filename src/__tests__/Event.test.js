@@ -23,10 +23,6 @@ describe('<Event /> component', () => {
     expect(EventWrapper.find('.location')).toHaveLength(1);
   });
 
-  test('render the description of the event', () => {
-    expect(EventWrapper.find('.description')).toHaveLength(1);
-  });
-
   test('Show details button is rendered', () => {
     expect(EventWrapper.find('.show-details')).toHaveLength(1);
   });

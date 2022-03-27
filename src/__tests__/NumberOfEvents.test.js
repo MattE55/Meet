@@ -9,7 +9,12 @@ describe("<NumberOfEvents /> component", () => {
   });
 
   test('render text input', () => {
-    expect(NumberOfEventsWrapper.find('.number').prop('value')).toBe(32);
+    expect(NumberOfEventsWrapper.find('.inputNumber').prop('value')).toBe(32);
+  });
+
+  test('change number of events when input changes', () => {
+    NumberOfEventsWrapper.setState({ numberOfEvents: 32 });
+    expect(NumberOfEventsWrapper.state('numberOfEvents')).toEqual(32);
   });
 
 });
