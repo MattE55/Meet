@@ -1,8 +1,9 @@
 # Meet App
 
+### Hello! I am a student and this is my Meet React App. 
+
 ## Objective
 
-### ** Hello! ** I am a student and this is my Meet React App. 
 ### I created this app with careerfoundry and used to learn how to build a serverless, progressive web application with React using test driven development.
 ### This application uses the Google Calendar API to fetch events.
 
