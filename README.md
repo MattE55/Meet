@@ -4,8 +4,8 @@
 
 ## Objective
 
-### I created this app with careerfoundry and used to learn how to build a serverless, progressive web application with React using test driven development.
-### This application uses the Google Calendar API to fetch events.
+ I created this app with careerfoundry and used to learn how to build a serverless, progressive web application with React using test driven development.
+ This application uses the Google Calendar API to fetch events.
 
 ## Key Features
 
