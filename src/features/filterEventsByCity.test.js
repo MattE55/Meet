@@ -50,17 +50,18 @@ defineFeature(feature, (test) => {
 
     let AppWrapper;
     given('user was typing “Berlin” in the city textbox', () => {
-      AppWrapper = await mount(<App />);
-      AppWrapper.find('.city').simulate('change', { target: { value: 'Berlin' } });
+      AppWrapper = mount(<App />);
     });
 
-    and('the list of suggested cities is showing', () => {
+    and('the list of suggested cities is showing', async () => {
+      await AppWrapper.find(".city").simulate("change", {target: { value: "Berlin" }});
       AppWrapper.update();
       expect(AppWrapper.find('.suggestions li')).toHaveLength(2);
     });
 
-    when('the user selects a city (e.g., “Berlin, Germany”) from the list', () => {
-      AppWrapper.find('.suggestions li').at(0).simulate('click');
+    when('the user selects a city (e.g., “Berlin, Germany”) from the list', async () => {
+      await AppWrapper.find('.suggestions li').at(0).simulate('click');
+      AppWrapper.update();
     });
 
     then('their city should be changed to that city (i.e., “Berlin, Germany”)', () => {
@@ -69,7 +70,7 @@ defineFeature(feature, (test) => {
     });
 
     and('the user should receive a list of upcoming events in that city', () => {
-      expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
+      expect(AppWrapper.find('.event')).toHaveLength(1);
     });
   });
 });

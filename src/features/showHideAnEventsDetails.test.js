@@ -39,9 +39,9 @@ defineFeature(feature, test => {
   });
 
   test('User can collapse an event to hide its details', ({ given, when, then }) => {
-    given('user would like to hide the details of an event', () => {
-      AppWrapper = mount(<App />);
-      expect(AppWrapper.find('.details-view')).toHaveLength(0);
+    given('user would like to hide the details of an event', async () => {
+      AppWrapper = await mount(<App />);
+      AppWrapper.update();
       AppWrapper.find('.show-details').at(0).simulate('click');
     });
 

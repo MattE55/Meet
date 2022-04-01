@@ -56,13 +56,17 @@ class App extends Component {
       { 
         numberOfEvents, 
       },
-      this.updateEvents(this.state.locations, numberOfEvents)
+      this.updateEvents(null, numberOfEvents)
     );
   };
 
   render() {
     return (
       <div className="App">
+        <div className="Appheader">
+          <h1>Search for Events!</h1>
+          <p>I am a student at CareerFoundry and this app uses the google calendar API to search for events. You can search a city and filter the amount of events you want to see below.</p>
+        </div>
         <CitySearch 
           locations={this.state.locations} 
           updateEvents={this.updateEvents} />
@@ -72,7 +76,7 @@ class App extends Component {
           }} />
         <EventList 
           events={this.state.events} 
-          numberOfEvents={this.state.numberOfEvents} />
+        />
       </div>
     );
   }
