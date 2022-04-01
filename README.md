@@ -13,8 +13,7 @@ Feature
 
 1. The User should be able to Filter events by city.
 
-Scenario 
-1. When a user hasn't searched for a city, show upcoming events from all cities.
+Scenario 1. When a user hasn't searched for a city, show upcoming events from all cities.
  - Given a user hasn't searched for a city
  - When the user opens the app
  - Then the user should see a list of all upcoming events
@@ -36,8 +35,7 @@ Scenario
 Feature 
 2. The user should be able to click on an event so they can show or hide details for that certain event.
 
-Scenario 
-1. An event element is collapsed by default 
+Scenario 1. An event element is collapsed by default 
  - Given a user is on the main page
  - When nothing is clicked
  - Then the event details will be collapsed
@@ -55,8 +53,7 @@ Scenario
 Feature 
 3. The user should be able to choose the amount of events they see at one time.
 
-Scenario 
-1. When the user hasn’t specified a number, 32 is the default number 
+Scenario 1. When the user hasn’t specified a number, 32 is the default number 
  - Given a user has not inputed how many events they want to see on the page When the user opens the main page with events
  - Then they will see 32 events
 
@@ -68,8 +65,7 @@ Scenario
 Feature 
 4. The user should be able to use the app when offline.
 
-Scenario 
-1. Show cached data when there’s no internet connection 
+Scenario 1. Show cached data when there’s no internet connection 
  - Given the user is offline trying to use the app
  - When the user opens the app with cached data
  - Then the cached data will be available to use in the app
@@ -82,8 +78,7 @@ Scenario
 Feature 
 5. The user should be able to see charts showing dates of events.
 
-Scenario 
-1. Show a chart with the number of upcoming events in each city
+Scenario 1. Show a chart with the number of upcoming events in each city
  - Given the user is on the main page
  - When they want to see upcoming events in each city
  - Then they will be able to see a chart with the number of upcoming events in
