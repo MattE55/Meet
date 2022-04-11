@@ -4,7 +4,8 @@ import './nprogress.css'
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents'
-import { getEvents, extractLocations } from './api';
+import WelcomeScreen from '.WelcomeScreen';
+import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 import { OfflineAlert } from './Alert';
 
 
@@ -14,9 +15,10 @@ class App extends Component {
     events: [],
     locations: [],
     numberOfEvents: 32,
+    showWelcomeScreen: undefined
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
       if (this.mounted) {
@@ -62,6 +64,8 @@ class App extends Component {
   };
 
   render() {
+    if (this.state.showWelcomeScreen === undefined)
+      return <div className="app" />
     return (
       <div className="App">
         <div className="Appheader">
@@ -78,6 +82,10 @@ class App extends Component {
           }} />
         <EventList 
           events={this.state.events}
+        />
+        <WelcomeScreen 
+          showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={() => {getAccessToken() }}
         />
       </div>
     );
