@@ -5,6 +5,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents'
 import { getEvents, extractLocations } from './api';
+import { OfflineAlert } from './Alert';
 
 
 class App extends Component {
@@ -66,6 +67,7 @@ class App extends Component {
         <div className="Appheader">
           <h1>Search for Events!</h1>
           <p>I am a student at CareerFoundry and this app uses the google calendar API to search for events. You can search a city and filter the amount of events you want to see below.</p>
+          {!navigator.onLine && <OfflineAlert text={"Offline, New events cannot be loaded until you have an internet connetion."} /> }
         </div>
         <CitySearch 
           locations={this.state.locations} 
