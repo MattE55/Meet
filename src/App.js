@@ -4,7 +4,7 @@ import './nprogress.css'
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents'
-import WelcomeScreen from '.WelcomeScreen';
+import WelcomeScreen from './WelcomeScreen';
 import { getEvents, extractLocations, checkToken, getAccessToken } from './api';
 import { OfflineAlert } from './Alert';
 
@@ -20,7 +20,20 @@ class App extends Component {
 
   async componentDidMount() {
     this.mounted = true;
-    getEvents().then((events) => {
+    const accessToken = localStorage.getItem('access_token');
+    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get("code");
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+      if ((code || isTokenValid) && this.mounted) {
+        getEvents().then((events) => {
+          if (this.mounted) {
+          this.setState({ events, locations: extractLocations(events) });
+          }
+        });
+      }
+  }
+    /*getEvents().then((events) => {
       if (this.mounted) {
         this.setState({ 
         events, 
@@ -29,7 +42,7 @@ class App extends Component {
         });
       }
     });
-  }
+  }*/
 
   componentWillUnmount(){
     this.mounted = false;
